@@ -1,0 +1,65 @@
+<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="PaginaMasterX.Master.vb" Inherits="WEB_Cotizador.PaginaMasterX" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Menu Principal</title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 108px;
+        }
+        .auto-style2 {
+            width: 100%;
+            height: 102%;
+        }
+    </style>
+</head>
+<body bgcolor="#ffffff" background="IMG/fondoconteblanco.png">
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 100%">
+            <tr>
+                <td style="height: 95px; background-color: #ff6600; width: 100%;">
+            <asp:Label ID="LbDias" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="White"
+                        Text="Label" Width="100%"></asp:Label></td>
+                    <td style="height: 100%; background-color: #ff6600; text-align: right; width:auto;">
+                    
+                    <img src="../IMG/LOGO%20FINAGIL.JPG" class="auto-style1" /></td>
+            </tr>
+            <tr>
+            <td colspan="2" class="auto-style2">
+                    <asp:Menu ID="Menu1" runat="server" BackColor="White" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#FF6600" Height="1px" MaximumDynamicDisplayLevels="10" Orientation="Horizontal" StaticSubMenuIndent="10px" Visible="True" Width="348px">
+                        <StaticSelectedStyle BackColor="#507CD1" />
+                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                        <DynamicMenuStyle CssClass="Menu_IE" />
+                        <DynamicSelectedStyle BackColor="#507CD1" />
+                        <DynamicMenuItemStyle ForeColor="#FF6600" HorizontalPadding="5px" VerticalPadding="2px" />
+                        <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Cotizadores/CotizadorLiq.aspx" SeparatorImageUrl="~/IMG/sep.JPG" Text="Crédito de Liquidez" Value="LQ"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Cotizadores/CotizadorSimple.aspx" SeparatorImageUrl="~/IMG/sep.JPG" Text="Crédito Simple" Value="S"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Cotizadores/CotizadorAF.aspx" SeparatorImageUrl="~/IMG/sep.JPG" Text="Arrendamiento Financiero" Value="AF"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/LoginX.aspx" SeparatorImageUrl="~/IMG/sep.JPG" Text="Salir" Value="Salir"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                    <br />
+                    </td>
+            </tr>
+            </table>
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+            </asp:ContentPlaceHolder>
+            <table style="width: 100%; position: static;">
+            <tr>
+            <td style="height: 50px; background-color: #ff6600">
+            </td>                
+            </tr>
+            </table>
+            
+       
+    </div>
+    </form>
+</body>
+</html>
