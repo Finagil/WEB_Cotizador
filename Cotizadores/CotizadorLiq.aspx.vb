@@ -10,8 +10,6 @@ Partial Public Class WebFormLiq
     Dim TasaAnual As Double = 0
     Dim Bandera As Boolean = False
     Dim ContRecur As Double = 0
-    Dim FinDeMes As Boolean = False
-
     Dim CapitaT As Double = 0
     Dim PagoT As Double = 0
     Dim InteresT As Double = 0
@@ -70,6 +68,10 @@ Partial Public Class WebFormLiq
         Dim ErrorEnero As Date = Date.Now.AddMonths(1)
         Dim Meses As Integer = CmbPlazo.SelectedValue
 
+        If FechaAux.Day > 28 Then
+            FechaAux = FechaAux.AddMonths(1).AddDays((FechaAux.AddMonths(1).Day - 1) * -1)
+        End If
+
         If CmbTipoPers.SelectedValue = "M" Then
             SegVidaX = 0
         End If
@@ -102,14 +104,6 @@ Partial Public Class WebFormLiq
 
         While FechaAux < FechaFin.ToShortDateString
             Cont += 1
-            If Cont = 1 Then
-                If FechaAux.AddDays(1).Day = 1 And FechaAux.Month <> 2 Then
-                    FinDeMes = True
-                Else
-                    FinDeMes = False
-                End If
-            End If
-
             Dias = DateDiff(DateInterval.Day, FechaAnt, FechaAux)
             Interes = (Capital * (TasaAnual / 360) * Dias).ToString("N2")
             rr = TAmortizaciones.NewRow
@@ -148,19 +142,7 @@ Partial Public Class WebFormLiq
             Capital = Capital.ToString("N2") - (PagoX.ToString("N2") - Interes.ToString("N2"))
 
             FechaAnt = FechaAux
-
-            If FinDeMes = False Then
-                FechaAux = FechaAnt.AddMonths(1)
-                If Cont = 2 And FechaAnt.Month = 2 And FechaAnt.AddDays(1).Day = 1 Then
-                    If ErrorEnero.Day = 29 And FechaAux.Day = 28 Then FechaAux = FechaAux.AddDays(1)
-                    If ErrorEnero.Day = 30 And FechaAux.Day = 28 Then FechaAux = FechaAux.AddDays(2)
-                    If ErrorEnero.Day = 30 And FechaAux.Day = 29 Then FechaAux = FechaAux.AddDays(1)
-                End If
-            Else
-                FechaAux = FechaAnt.AddDays(1)
-                FechaAux = FechaAux.AddMonths(1)
-                FechaAux = FechaAux.AddDays(-1)
-            End If
+            FechaAux = FechaAnt.AddMonths(1)
 
             If Cont = 1 Then
                 If rr.Capital < 0 Then
