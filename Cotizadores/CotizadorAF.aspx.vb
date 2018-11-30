@@ -72,6 +72,10 @@ Partial Public Class WebFormAF
         Dim Meses As Integer = CmbPlazo.SelectedValue
         Dim Opcion As Decimal = 0
 
+        If FechaAux.Day > 28 Then
+            FechaAux = FechaAux.AddMonths(1).AddDays((FechaAux.AddMonths(1).Day - 1) * -1)
+        End If
+
         If ckIVA.Checked = True Then
             IvaCap = Math.Round(Capital - (Capital / (1 + TasaIva)), 2)
             Capital -= IvaCap

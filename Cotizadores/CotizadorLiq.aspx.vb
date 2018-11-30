@@ -236,7 +236,7 @@ Partial Public Class WebFormLiq
     End Sub
 
     Protected Sub CmbPlazo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbPlazo.SelectedIndexChanged
-        TxtTasa.Text = ta.TasaAplicacble(CmbPlazo.SelectedValue, ta.SacaPeriodoMAX, "CS")
+        'TxtTasa.Text = ta.TasaAplicacble(CmbPlazo.SelectedValue, ta.SacaPeriodoMAX, "CS")
     End Sub
 
     Protected Sub BotonImp_Click(sender As Object, e As EventArgs) Handles BotonImp.Click
