@@ -274,6 +274,8 @@ Partial Public Class WebFormLiq
         Dim Comision As Decimal = CDec(TxtMonto.Text) * CDec(TxtComision.Text) / 100
         newrptRepSalCli.SetParameterValue("Comision", Comision)
         newrptRepSalCli.SetParameterValue("IvaComision", Comision * 0.16)
+        newrptRepSalCli.SetParameterValue("Ratific", 1724.14)
+        newrptRepSalCli.SetParameterValue("RatificIVA", 275.86)
 
         Dim cad As String = "~\tmp\" & Date.Now.ToString("yyyyMMddmmss") & ".pdf"
         newrptRepSalCli.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(cad))
