@@ -2,14 +2,15 @@
 <xs:schema id="CotizaDS" targetNamespace="http://tempuri.org/CotizaDS.xsd" xmlns:mstns="http://tempuri.org/CotizaDS.xsd" xmlns="http://tempuri.org/CotizaDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ProductionConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProductionConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ProductionConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ProductionConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProductionConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ProductionConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ProdCS" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProdCS (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WEB_Cotizador.My.MySettings.GlobalReference.Default.ProdCS" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TasasAplicablesTableAdapter" GeneratorDataComponentClassName="TasasAplicablesTableAdapter" Name="TasasAplicables" UserDataComponentName="TasasAplicablesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectName="Production.dbo.TasasAplicables1" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProdCS (MySettings)" DbObjectName="Production.dbo.TasasAplicables1" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.TasasAplicables1</CommandText>
@@ -35,7 +36,7 @@
               <Mapping SourceColumn="15% DG" DataSetColumn="15% DG" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SacaPeriodoMAX" Modifier="Public" Name="SacaPeriodoMAX" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SacaPeriodoMAX">
+              <DbSource ConnectionRef="ProdCS (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SacaPeriodoMAX" Modifier="Public" Name="SacaPeriodoMAX" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SacaPeriodoMAX">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(Periodo) AS Periodo
@@ -44,7 +45,7 @@ FROM            PeriodoTasas</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ProductionConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="TasaAplicacble" Modifier="Public" Name="TasaAplicacble" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="TasaAplicacble">
+              <DbSource ConnectionRef="ProdCS (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="TasaAplicacble" Modifier="Public" Name="TasaAplicacble" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="TasaAplicacble">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT        MAX(TasaAplicable) AS TasaAplicable
@@ -68,7 +69,7 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
   <xs:element name="CotizaDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CotizaDS" msprop:Generator_UserDSName="CotizaDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TasasAplicables" msprop:Generator_TableClassName="TasasAplicablesDataTable" msprop:Generator_TableVarName="tableTasasAplicables" msprop:Generator_RowChangedName="TasasAplicablesRowChanged" msprop:Generator_TablePropName="TasasAplicables" msprop:Generator_RowDeletingName="TasasAplicablesRowDeleting" msprop:Generator_RowChangingName="TasasAplicablesRowChanging" msprop:Generator_RowEvHandlerName="TasasAplicablesRowChangeEventHandler" msprop:Generator_RowDeletedName="TasasAplicablesRowDeleted" msprop:Generator_RowClassName="TasasAplicablesRow" msprop:Generator_UserTableName="TasasAplicables" msprop:Generator_RowEvArgName="TasasAplicablesRowChangeEvent">
+        <xs:element name="TasasAplicables" msprop:Generator_TableClassName="TasasAplicablesDataTable" msprop:Generator_TableVarName="tableTasasAplicables" msprop:Generator_TablePropName="TasasAplicables" msprop:Generator_RowDeletingName="TasasAplicablesRowDeleting" msprop:Generator_RowChangingName="TasasAplicablesRowChanging" msprop:Generator_RowEvHandlerName="TasasAplicablesRowChangeEventHandler" msprop:Generator_RowDeletedName="TasasAplicablesRowDeleted" msprop:Generator_UserTableName="TasasAplicables" msprop:Generator_RowChangedName="TasasAplicablesRowChanged" msprop:Generator_RowEvArgName="TasasAplicablesRowChangeEvent" msprop:Generator_RowClassName="TasasAplicablesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Límite_x0020_Inferior" msprop:Generator_ColumnVarNameInTable="columnLímite_Inferior" msprop:Generator_ColumnPropNameInRow="Límite_Inferior" msprop:Generator_ColumnPropNameInTable="Límite_InferiorColumn" msprop:Generator_UserColumnName="Límite Inferior" type="xs:unsignedByte" />
@@ -84,7 +85,7 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Reporte" msprop:Generator_TableClassName="ReporteDataTable" msprop:Generator_TableVarName="tableReporte" msprop:Generator_TablePropName="Reporte" msprop:Generator_RowDeletingName="ReporteRowDeleting" msprop:Generator_RowChangingName="ReporteRowChanging" msprop:Generator_RowEvHandlerName="ReporteRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteRowDeleted" msprop:Generator_UserTableName="Reporte" msprop:Generator_RowChangedName="ReporteRowChanged" msprop:Generator_RowEvArgName="ReporteRowChangeEvent" msprop:Generator_RowClassName="ReporteRow">
+        <xs:element name="Reporte" msprop:Generator_TableClassName="ReporteDataTable" msprop:Generator_TableVarName="tableReporte" msprop:Generator_RowChangedName="ReporteRowChanged" msprop:Generator_TablePropName="Reporte" msprop:Generator_RowDeletingName="ReporteRowDeleting" msprop:Generator_RowChangingName="ReporteRowChanging" msprop:Generator_RowEvHandlerName="ReporteRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteRowDeleted" msprop:Generator_RowClassName="ReporteRow" msprop:Generator_UserTableName="Reporte" msprop:Generator_RowEvArgName="ReporteRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoPago" msprop:Generator_ColumnVarNameInTable="columnNoPago" msprop:Generator_ColumnPropNameInRow="NoPago" msprop:Generator_ColumnPropNameInTable="NoPagoColumn" msprop:Generator_UserColumnName="NoPago" type="xs:short" />
@@ -104,7 +105,7 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReporteAF" msprop:Generator_TableClassName="ReporteAFDataTable" msprop:Generator_TableVarName="tableReporteAF" msprop:Generator_RowChangedName="ReporteAFRowChanged" msprop:Generator_TablePropName="ReporteAF" msprop:Generator_RowDeletingName="ReporteAFRowDeleting" msprop:Generator_RowChangingName="ReporteAFRowChanging" msprop:Generator_RowEvHandlerName="ReporteAFRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteAFRowDeleted" msprop:Generator_RowClassName="ReporteAFRow" msprop:Generator_UserTableName="ReporteAF" msprop:Generator_RowEvArgName="ReporteAFRowChangeEvent">
+        <xs:element name="ReporteAF" msprop:Generator_TableClassName="ReporteAFDataTable" msprop:Generator_TableVarName="tableReporteAF" msprop:Generator_TablePropName="ReporteAF" msprop:Generator_RowDeletingName="ReporteAFRowDeleting" msprop:Generator_RowChangingName="ReporteAFRowChanging" msprop:Generator_RowEvHandlerName="ReporteAFRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteAFRowDeleted" msprop:Generator_UserTableName="ReporteAF" msprop:Generator_RowChangedName="ReporteAFRowChanged" msprop:Generator_RowEvArgName="ReporteAFRowChangeEvent" msprop:Generator_RowClassName="ReporteAFRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NoPago" msprop:Generator_ColumnVarNameInTable="columnNoPago" msprop:Generator_ColumnPropNameInRow="NoPago" msprop:Generator_ColumnPropNameInTable="NoPagoColumn" msprop:Generator_UserColumnName="NoPago" type="xs:short" />
@@ -125,7 +126,7 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TablaAmortizacion" msprop:Generator_TableClassName="TablaAmortizacionDataTable" msprop:Generator_TableVarName="tableTablaAmortizacion" msprop:Generator_TablePropName="TablaAmortizacion" msprop:Generator_RowDeletingName="TablaAmortizacionRowDeleting" msprop:Generator_RowChangingName="TablaAmortizacionRowChanging" msprop:Generator_RowEvHandlerName="TablaAmortizacionRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaAmortizacionRowDeleted" msprop:Generator_UserTableName="TablaAmortizacion" msprop:Generator_RowChangedName="TablaAmortizacionRowChanged" msprop:Generator_RowEvArgName="TablaAmortizacionRowChangeEvent" msprop:Generator_RowClassName="TablaAmortizacionRow">
+        <xs:element name="TablaAmortizacion" msprop:Generator_TableClassName="TablaAmortizacionDataTable" msprop:Generator_TableVarName="tableTablaAmortizacion" msprop:Generator_RowChangedName="TablaAmortizacionRowChanged" msprop:Generator_TablePropName="TablaAmortizacion" msprop:Generator_RowDeletingName="TablaAmortizacionRowDeleting" msprop:Generator_RowChangingName="TablaAmortizacionRowChanging" msprop:Generator_RowEvHandlerName="TablaAmortizacionRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaAmortizacionRowDeleted" msprop:Generator_RowClassName="TablaAmortizacionRow" msprop:Generator_UserTableName="TablaAmortizacion" msprop:Generator_RowEvArgName="TablaAmortizacionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="No_x0020_Pago" msprop:Generator_ColumnVarNameInTable="columnNo_Pago" msprop:Generator_ColumnPropNameInRow="No_Pago" msprop:Generator_ColumnPropNameInTable="No_PagoColumn" msprop:Generator_UserColumnName="No Pago" type="xs:short" />
@@ -141,7 +142,7 @@ WHERE        (LimiteInferior &lt;= @Meses) AND (LimiteSuperior &gt;= @Meses) AND
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TablaAmortizacionAF" msprop:Generator_TableClassName="TablaAmortizacionAFDataTable" msprop:Generator_TableVarName="tableTablaAmortizacionAF" msprop:Generator_TablePropName="TablaAmortizacionAF" msprop:Generator_RowDeletingName="TablaAmortizacionAFRowDeleting" msprop:Generator_RowChangingName="TablaAmortizacionAFRowChanging" msprop:Generator_RowEvHandlerName="TablaAmortizacionAFRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaAmortizacionAFRowDeleted" msprop:Generator_UserTableName="TablaAmortizacionAF" msprop:Generator_RowChangedName="TablaAmortizacionAFRowChanged" msprop:Generator_RowEvArgName="TablaAmortizacionAFRowChangeEvent" msprop:Generator_RowClassName="TablaAmortizacionAFRow">
+        <xs:element name="TablaAmortizacionAF" msprop:Generator_TableClassName="TablaAmortizacionAFDataTable" msprop:Generator_TableVarName="tableTablaAmortizacionAF" msprop:Generator_RowChangedName="TablaAmortizacionAFRowChanged" msprop:Generator_TablePropName="TablaAmortizacionAF" msprop:Generator_RowDeletingName="TablaAmortizacionAFRowDeleting" msprop:Generator_RowChangingName="TablaAmortizacionAFRowChanging" msprop:Generator_RowEvHandlerName="TablaAmortizacionAFRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaAmortizacionAFRowDeleted" msprop:Generator_RowClassName="TablaAmortizacionAFRow" msprop:Generator_UserTableName="TablaAmortizacionAF" msprop:Generator_RowEvArgName="TablaAmortizacionAFRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="No_x0020_Pago" msprop:Generator_ColumnVarNameInTable="columnNo_Pago" msprop:Generator_ColumnPropNameInRow="No_Pago" msprop:Generator_ColumnPropNameInTable="No_PagoColumn" msprop:Generator_UserColumnName="No Pago" type="xs:short" />
