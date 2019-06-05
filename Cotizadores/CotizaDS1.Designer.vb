@@ -421,8 +421,7 @@ Partial Public Class CotizaDS
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class TasasAplicablesDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of TasasAplicablesRow)
         
         Private columnLímite_Inferior As Global.System.Data.DataColumn
         
@@ -602,12 +601,6 @@ Partial Public Class CotizaDS
             rowTasasAplicablesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTasasAplicablesRow)
             Return rowTasasAplicablesRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -819,8 +812,7 @@ Partial Public Class CotizaDS
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class ReporteDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of ReporteRow)
         
         Private columnNoPago As Global.System.Data.DataColumn
         
@@ -1050,12 +1042,6 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As ReporteDataTable = CType(MyBase.Clone,ReporteDataTable)
             cln.InitVars
@@ -1266,8 +1252,7 @@ Partial Public Class CotizaDS
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class ReporteAFDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of ReporteAFRow)
         
         Private columnNoPago As Global.System.Data.DataColumn
         
@@ -1507,12 +1492,6 @@ Partial Public Class CotizaDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As ReporteAFDataTable = CType(MyBase.Clone,ReporteAFDataTable)
             cln.InitVars
@@ -1726,8 +1705,7 @@ Partial Public Class CotizaDS
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class TablaAmortizacionDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of TablaAmortizacionRow)
         
         Private columnNo_Pago As Global.System.Data.DataColumn
         
@@ -1913,12 +1891,6 @@ Partial Public Class CotizaDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function FindByNo_Pago(ByVal No_Pago As Short) As TablaAmortizacionRow
             Return CType(Me.Rows.Find(New Object() {No_Pago}),TablaAmortizacionRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2112,8 +2084,7 @@ Partial Public Class CotizaDS
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class TablaAmortizacionAFDataTable
-        Inherits Global.System.Data.DataTable
-        Implements Global.System.Collections.IEnumerable
+        Inherits Global.System.Data.TypedTableBase(Of TablaAmortizacionAFRow)
         
         Private columnNo_Pago As Global.System.Data.DataColumn
         
@@ -2309,12 +2280,6 @@ Partial Public Class CotizaDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function FindByNo_Pago(ByVal No_Pago As Short) As TablaAmortizacionAFRow
             Return CType(Me.Rows.Find(New Object() {No_Pago}),TablaAmortizacionAFRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
